@@ -9,7 +9,7 @@ import { Divider } from '@mui/material';
 import IconButtonCustom from './atoms/IconButtonCustom';
 import TextCustom from './atoms/TextCustom';
 
-const CardTarea = ({id = '', titulo = '', descripcion = '', onClick = () => null}) => {
+const CardTarea = ({id = '', title = '', description = '', onClick = () => null}) => {
   const handleEditar = () => {
     onClick('edit', id);
   }
@@ -22,13 +22,13 @@ const CardTarea = ({id = '', titulo = '', descripcion = '', onClick = () => null
     <div className='bg-orange-400 flex h-32'>
       <div className='bg-green-300 w-full flex flex-col gap-2 p-3'>
         <div>
-          <TextCustom text={titulo} className="text-xl fontPBold" />
+          <TextCustom text={title} className="text-xl font-bold" />
         </div>
 
         <Divider/>
 
         <div>
-          <TextCustom text={descripcion} className="text-xl fontPRegular" />
+          <TextCustom text={description} className="text-xl fontPRegular" />
           </div>
         </div>
         

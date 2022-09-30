@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // Components
 import { DialogActions, DialogContent } from '@mui/material';
-import { TextCustom, ButtonCustom, TextInputCustom } from '../../atoms';
+import { TextCustom, ButtonCustom } from '../../atoms';
 import { DialogCustom } from '../../templates';
 
 

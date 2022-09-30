@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { ButtonCustom } from "./components/atoms";
+import { ButtonCustom, TextCustom } from "./components/atoms";
 
 import CardTarea from "./components/CardTarea";
 import Header from "./components/Header";
@@ -12,6 +12,24 @@ const App = () => {
   const [showDelete, setShowDelete] = useState(false)
   const [showAdd, setShowAdd] = useState(false)
   const [idTarea, setIdTarea] = useState('0');
+
+  const tareas = [
+    {
+      idTarea: '1',
+      title: 'Preparar desayuno',
+      description: 'Hacer panqueques con miel.'
+    },
+    {
+      idTarea: '2',
+      title: 'Preparar almuerzo',
+      description: 'Hacer arroz con pollo.'
+    },
+    {
+      idTarea: '3',
+      title: 'Preparar cena',
+      description: 'Hacer huevos con frijoles.'
+    }
+  ]
 
   const handleAction = (type = '', id = '') => {
     setIdTarea(id);
@@ -32,24 +50,36 @@ const App = () => {
     <div>
       <Header />
 
-      <h1 className="px-5 pt-5 text-2xl font-extrabold">Tarea</h1>
+      <TextCustom text="Aplicación de Tareas" className="text-2xl px-5 font-bold"/>
       <div className="flex justify-end pt-4 pb-4 mr-5">
         <ButtonCustom text="Crear Tarea" className='my-3 px-4' onClick={() => setShowAdd(true)} />
       </div>
       <div className="flex flex-col gap-2 px-5">
-        <CardTarea
+        {/* <CardTarea
           id={'1'}
-          titulo="Preparando desayuno"
+          titulo="Preparar desayuno"
           descripcion="Huevo con frijoles"
           onClick={handleAction}
         />
 
         <CardTarea
           id={'2'}
-          titulo="Preparando desayuno"
+          titulo="Preparar desayuno"
           descripcion="Huevo con frijoles"
           onClick={handleAction}
-        />
+        /> */}
+
+        {tareas.map((tarea, index) => {
+          return (
+            <CardTarea
+              key={tarea.idTarea}
+              id={tarea.idTarea}
+              title={tarea.title}
+              description={tarea.description}
+              onClick={handleAction}
+            />
+          );
+        })}
       </div>
       <DialogTareaAdd
         idTarea={idTarea}
