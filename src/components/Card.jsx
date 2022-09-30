@@ -1,5 +1,4 @@
-import { getByTitle } from '@testing-library/react'
-import React from 'react'
+import React from 'react';
 
 const Card = ({title = '', description = '', imagen = '', price = ''}) => {
   return (
